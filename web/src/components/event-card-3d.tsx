@@ -30,33 +30,22 @@ export function EventCard3D({
       onHoverStart={() => !prefersReducedMotion && setIsFlipped(true)}
       onHoverEnd={() => !prefersReducedMotion && setIsFlipped(false)}
       onClick={() => prefersReducedMotion && setIsFlipped(!isFlipped)}
-      whileHover={{ scale: 1.05, y: -8 }}
-      className="group relative h-64 cursor-pointer origin-center"
-      style={{ perspective: "1200px" }}
+      className="group relative h-64 cursor-pointer overflow-hidden"
     >
       <motion.div
+        className="absolute inset-0 w-full h-full"
         initial={false}
-        animate={{ rotateY: isFlipped ? 180 : 0 }}
-        transition={{
-          duration: prefersReducedMotion ? 0.01 : 0.6,
-          ease: "easeInOut",
+        animate={{ 
+          rotateY: isFlipped ? 90 : 0,
+          opacity: isFlipped ? 0 : 1
         }}
-        style={{
-          transformStyle: "preserve-3d",
-          width: "100%",
-          height: "100%",
+        transition={{
+          duration: prefersReducedMotion ? 0.01 : 0.3,
+          ease: "easeInOut",
         }}
       >
         {/* Front */}
-        <motion.div
-          className="panel grain absolute inset-0 flex flex-col gap-4 overflow-hidden border-l-4 border-[color:var(--gold)] bg-[color:var(--surface)] p-6 transition-all hover:-translate-y-1 hover:border-[color:var(--charcoal)] hover:shadow-2xl"
-          style={{
-            backfaceVisibility: "hidden",
-          }}
-          whileHover={{
-            boxShadow: "0 0 40px rgba(201, 168, 98, 0.3), inset 0 0 20px rgba(201, 168, 98, 0.1)",
-          }}
-        >
+        <div className="panel grain w-full h-full flex flex-col gap-4 overflow-hidden border-l-4 border-[color:var(--gold)] bg-[color:var(--surface)] p-6 transition-all hover:border-[color:var(--charcoal)] hover:shadow-2xl">
           <div className="flex items-start justify-between">
             <div className="meta text-[color:var(--gold-dark)]">{date}</div>
             <div className="h-3 w-3 rounded-full bg-gradient-to-br from-[color:var(--gold)] to-[color:var(--accent-coral)] shadow-md transition-transform group-hover:scale-150"></div>
@@ -67,16 +56,23 @@ export function EventCard3D({
           <p className="flex-1 leading-relaxed text-[color:var(--text-secondary)]">
             {summary}
           </p>
-        </motion.div>
+        </div>
+      </motion.div>
 
+      <motion.div
+        className="absolute inset-0 w-full h-full"
+        initial={false}
+        animate={{ 
+          rotateY: isFlipped ? 0 : -90,
+          opacity: isFlipped ? 1 : 0
+        }}
+        transition={{
+          duration: prefersReducedMotion ? 0.01 : 0.3,
+          ease: "easeInOut",
+        }}
+      >
         {/* Back */}
-        <motion.div
-          className="panel grain absolute inset-0 flex flex-col items-center justify-center gap-4 border-l-4 border-[color:var(--purple)] bg-gradient-to-br from-[color:var(--purple)]/20 to-[color:var(--gold)]/10 p-6"
-          style={{
-            backfaceVisibility: "hidden",
-            rotateY: 180,
-          }}
-        >
+        <div className="panel grain w-full h-full flex flex-col items-center justify-center gap-4 border-l-4 border-[color:var(--purple)] bg-gradient-to-br from-[color:var(--purple)]/20 to-[color:var(--gold)]/10 p-6">
           <div className="text-center">
             <h4 className="display mb-3 text-xl text-[color:var(--gold)]">
               Event Details
@@ -106,7 +102,7 @@ export function EventCard3D({
               </svg>
             </a>
           )}
-        </motion.div>
+        </div>
       </motion.div>
     </motion.div>
   );

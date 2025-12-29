@@ -1,0 +1,215 @@
+@import "tailwindcss";
+
+:root,
+html.light {
+  /* LIGHT THEME - PRIMARY */
+  --bg: #F5F3EF;
+  --surface: #FAF8F5;
+  --text-primary: #1A1614;
+  --text-secondary: #3D3D45;
+  --text-muted: #6D6D77;
+  
+  /* Brand & Identity */
+  --purple: #5D4A8F;
+  --purple-light: #7A6BA8;
+  --purple-dark: #4A3A6F;
+  --gold: #D4A574;
+  
+  /* Accent Colors for Rich Visual Design */
+  --teal: #2C7A7B;
+  --teal-light: #5BA3A3;
+  --teal-dark: #1F5556;
+  --coral: #D97B7D;
+  --coral-light: #E9A8AA;
+  --coral-dark: #B85559;
+  --sage: #6B8E7F;
+  --sage-light: #9CBFA8;
+  
+  /* UI Neutrals */
+  --border: #D9D6D0;
+  --divider: #E5E2DA;
+  --shadow: 0 10px 30px rgba(26, 22, 20, 0.08);
+  
+  /* Legacy variables for compatibility */
+  --charcoal: #1A1614;
+  --charcoal-light: #4A4A52;
+  --warm-gray: #7A7A84;
+  --accent-coral: #D97B7D;
+  --accent-sage: #6B8E7F;
+  --gold-light: #E8C8A3;
+  --gold-dark: #B8844A;
+  --purple-dark-legacy: #4A3A6F;
+  
+  --radius: 8px;
+  --space-1: 8px;
+  --space-2: 16px;
+  --space-3: 24px;
+  --space-4: 32px;
+  --space-5: 48px;
+  --space-6: 64px;
+  --max-width: 1100px;
+}
+
+/* Dark theme - triggered by .dark class on html element */
+html.dark {
+  /* DARK THEME - SECONDARY */
+  --bg: #0F0E11;
+  --surface: #1A1920;
+  --text-primary: #F5F3EF;
+  --text-secondary: #C4C0B8;
+  --text-muted: #9A9690;
+  
+  /* Brand & Identity */
+  --purple: #9A85C8;
+  --purple-light: #B5A8DC;
+  --purple-dark: #7A6AA8;
+  --gold: #E8C8A3;
+  
+  /* Accent Colors for Rich Visual Design */
+  --teal: #5BA3A3;
+  --teal-light: #7CBFBF;
+  --teal-dark: #3F7878;
+  --coral: #E9A8AA;
+  --coral-light: #F5C4C6;
+  --coral-dark: #D27678;
+  --sage: #9CBFA8;
+  --sage-light: #B8D4C4;
+  
+  /* UI Neutrals */
+  --border: #332F38;
+  --divider: #2A2630;
+  --shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  
+  /* Legacy variables for compatibility */
+  --charcoal: #F5F3EF;
+  --charcoal-light: #C4C0B8;
+  --warm-gray: #9A9690;
+  --accent-coral: #E9A8AA;
+  --accent-sage: #9CBFA8;
+  --gold-light: #F5D4B5;
+  --gold-dark: #D4A574;
+  --purple-dark-legacy: #7A6AA8;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not(.light) {
+    /* DARK THEME - SECONDARY */
+    --bg: #0F0E11;
+    --surface: #1A1920;
+    --text-primary: #F5F3EF;
+    --text-secondary: #C4C0B8;
+    --text-muted: #9A9690;
+    
+    /* Brand & Identity */
+    --purple: #9A85C8;
+    --purple-light: #B5A8DC;
+    --purple-dark: #7A6AA8;
+    --gold: #E8C8A3;
+    
+    /* Accent Colors for Rich Visual Design */
+    --teal: #5BA3A3;
+    --teal-light: #7CBFBF;
+    --teal-dark: #3F7878;
+    --coral: #E9A8AA;
+    --coral-light: #F5C4C6;
+    --coral-dark: #D27678;
+    --sage: #9CBFA8;
+    --sage-light: #B8D4C4;
+    
+    /* UI Neutrals */
+    --border: #332F38;
+    --divider: #2A2630;
+    --shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    
+    /* Legacy variables for compatibility */
+    --charcoal: #F5F3EF;
+    --charcoal-light: #C4C0B8;
+    --warm-gray: #9A9690;
+    --accent-coral: #E9A8AA;
+    --accent-sage: #9CBFA8;
+    --gold-light: #F5D4B5;
+    --gold-dark: #D4A574;
+    --purple-dark-legacy: #7A6AA8;
+  }
+}
+
+body {
+  background: var(--bg);
+  color: var(--text-primary);
+  font-family: var(--font-body), "Source Serif 4", Georgia, serif;
+  letter-spacing: 0.01em;
+  min-height: 100vh;
+  margin: 0;
+  transition: background-color 0.5s ease, color 0.5s ease, border-color 0.5s ease;
+}
+
+* {
+  box-sizing: border-box;
+  transition-property: background-color, color, border-color, box-shadow;
+  transition-duration: 0.5s;
+  transition-timing-function: ease;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.page-shell {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: var(--space-5) var(--space-2);
+}
+
+.panel {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+
+.eyebrow {
+  font-family: var(--font-meta), "Source Sans 3", sans-serif;
+  font-size: 0.85rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+}
+
+.display {
+  font-family: var(--font-display), "Cormorant Garamond", "Times New Roman", serif;
+  letter-spacing: 0.01em;
+}
+
+.meta {
+  font-family: var(--font-meta), "Source Sans 3", sans-serif;
+  color: var(--text-secondary);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.grain {
+  position: relative;
+  isolation: isolate;
+}
+
+.grain::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: radial-gradient(circle at 20% 20%, rgba(0, 0, 0, 0.03), transparent 40%),
+    radial-gradient(circle at 80% 0%, rgba(0, 0, 0, 0.04), transparent 35%),
+    radial-gradient(circle at 50% 100%, rgba(0, 0, 0, 0.03), transparent 40%);
+  mix-blend-mode: multiply;
+  opacity: 0.65;
+  z-index: -1;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

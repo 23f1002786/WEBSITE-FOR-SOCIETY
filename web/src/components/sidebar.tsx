@@ -1,11 +1,13 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 
 export function Sidebar() {
   const [isOpen, setIsOpen] = useState(false);
   const [scrollY, setScrollY] = useState(0);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const handleScroll = () => setScrollY(window.scrollY);
@@ -15,7 +17,7 @@ export function Sidebar() {
 
   const navLinks = [
     { label: "Home", href: "#hero", id: "hero" },
-    { label: "About", href: "#about", id: "about" },
+    { label: "About", href: "/about", id: "about" },
     { label: "Events", href: "#events", id: "events" },
     { label: "Testimonials", href: "#testimonials", id: "testimonials" },
     { label: "Team", href: "#team", id: "team" },
@@ -24,10 +26,14 @@ export function Sidebar() {
 
   const handleNavClick = (href: string) => {
     setIsOpen(false);
-    const targetId = href.replace("#", "");
-    const element = document.getElementById(targetId);
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
+    if (href.startsWith("/")) {
+      navigate(href);
+    } else {
+      const targetId = href.replace("#", "");
+      const element = document.getElementById(targetId);
+      if (element) {
+        element.scrollIntoView({ behavior: "smooth" });
+      }
     }
   };
 

@@ -16,10 +16,8 @@ export function Sidebar() {
   }, []);
 
   const navLinks = [
-    { label: "Home", href: "#hero", id: "hero" },
-    { label: "About", href: "/about", id: "about" },
+    { label: "Home", href: "/", id: "hero" },
     { label: "Events", href: "#events", id: "events" },
-    { label: "Testimonials", href: "#testimonials", id: "testimonials" },
     { label: "Team", href: "#team", id: "team" },
     { label: "Join", href: "#join", id: "join" },
   ];

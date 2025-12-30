@@ -31,17 +31,17 @@ const teams = [
     name: "Design Team",
     tagline: "Creating beautiful and intuitive visual experiences",
     members: [
-      { name: "Shreya Singh", linkedin: "http://www.linkedin.com/in/shreya-singh-1101ss2006", email: "shreya@example.com", photo: "/public/profiles/Shreya Singh.jpg" },
-      { name: "Adya Jha", linkedin: "", email: "adya@example.com", photo: "/public/profiles/Adya Jha.jpg" },
+      { name: "Shreya Singh", linkedin: "http://www.linkedin.com/in/shreya-singh-1101ss2006", email: "24f2005569@ds.study.iitm.ac.in", photo: "/public/profiles/Shreya Singh.jpg" },
+      { name: "Adya Jha", linkedin: "", email: "23f3003352@ds.study.iitm.ac.in", photo: "/public/profiles/Adya Jha.jpg" },
     ],
   },
   {
     name: "Internal Community Managers",
     tagline: "Building and nurturing our vibrant community",
     members: [
-      { name: "Mili Parasher", linkedin: "https://www.linkedin.com/in/mili-parashar/", email: "mili@example.com", photo: "/profiles/Mili Parashar.jpg" },
-      { name: "Jiya B. Thakker", linkedin: "", email: "jiya@example.com", photo: "/profiles/Jiya B Thakker.jpeg" },
-      { name: "Preety Topno", linkedin: "https://www.linkedin.com/in/preety-topno-66614327b/", email: "preety@example.com", photo: "/profiles/Preety Topno.png" },
+      { name: "Mili Parasher", linkedin: "https://www.linkedin.com/in/mili-parashar/", email: "23f2004291@ds.study.iitm.ac.in", photo: "/profiles/Mili Parashar.jpg" },
+      { name: "Jiya B. Thakker", linkedin: "", email: "24f3001258@ds.study.iitm.ac.in", photo: "/profiles/Jiya B Thakker.jpeg" },
+      { name: "Preety Topno", linkedin: "https://www.linkedin.com/in/preety-topno-66614327b/", email: "23f2002294@ds.study.iitm.ac.in", photo: "/profiles/Preety Topno.png" },
       { name: "Bhavika Jain", linkedin: "https://www.linkedin.com/in/bhavika-jain04", email: "24f2000884@ds.study.iitm.ac.in", label: "Ideation Team", photo: "/profiles/Bhavika Jain.jpg" },
       { name: "Sharmitha K", linkedin: "https://www.linkedin.com/in/sharmitha-k-1696893a3", email: "24f2007979@ds.study.iitm.ac.in ", label: "Grievance Redressal", photo: "/profiles/Sharmitha K.jpg" },
 
@@ -51,17 +51,17 @@ const teams = [
     name: "Sponsorship, Outreach & PR",
     tagline: "Managing infrastructure and technical systems",
     members: [
-      { name: "Nashwa S P", label: "Sponsorship Team", linkedin: "", email: "nashwa@example.com", photo: "/profiles/Nashwa S P.jpg" },
-      { name: "Adrika Ghosh", label: "PR Team", linkedin: "https://www.linkedin.com/in/adrika-ghosh/", email: "adrika@example.com", photo: "/profiles/Adrika Ghosh.jpeg" },
+      { name: "Nashwa S P", label: "Sponsorship Team", linkedin: "", email: "23f2002294@ds.study.iitm.ac.in", photo: "/profiles/Nashwa S P.jpg" },
+      { name: "Adrika Ghosh", label: "PR Team", linkedin: "https://www.linkedin.com/in/adrika-ghosh/", email: "24f2006087@ds.study.iitm.ac.in", photo: "/profiles/Adrika Ghosh.jpeg" },
     ],
   },
   {
     name: "Content Creation",
     tagline: "Crafting engaging content and educational materials",
     members: [
-      { name: "Radhika", linkedin: "https://www.linkedin.com/in/radhika-singh-chauhan-5493a0321?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app", email: "radhika@example.com", photo: "/profiles/Radhika Singh Chauhan.jpg" },
+      { name: "Radhika", linkedin: "https://www.linkedin.com/in/radhika-singh-chauhan-5493a0321?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app", email: "24f3002832@ds.study.iitm.ac.in", photo: "/profiles/Radhika Singh Chauhan.jpg" },
       { name: "Adrija Chatterjee", linkedin: "https://www.linkedin.com/in/adrija-chatterjee-b14349357?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app", email: "24f2000867@ds.study.iitm.ac.in", photo: "/profiles/Adrija Chatterjee.jpg" },
-      { name: "Adrija Chakroborty", linkedin: "https://www.linkedin.com/in/adrija-chakrabarty-503879220/", email: "adrijachak@example.com", photo: "/profiles/Adrija Chakrabarty.jpg" },
+      { name: "Adrija Chakroborty", linkedin: "https://www.linkedin.com/in/adrija-chakrabarty-503879220/", email: "25f2000399@ds.study.iitm.ac.in", photo: "/profiles/Adrija Chakrabarty.jpg" },
     ],
   },
   {
@@ -69,7 +69,7 @@ const teams = [
     tagline: "Organizing impactful learning experiences",
     members: [
       { name: "Ashka Pathak", linkedin: "https://www.linkedin.com/in/ashkapathak/", email: "23f3002663@ds.study.iitm.ac.in", photo: "/profiles/AshkaPathak.jpg" },
-      { name: "Prisha Gupta", linkedin: "", email: "prisha@example.com", photo: "/profiles/Prisha Gupta.jpg" },
+      { name: "Prisha Gupta", linkedin: "", email: "24f2005549@ds.study.iitm.ac.in", photo: "/profiles/Prisha Gupta.jpg" },
     ],
   },
   {
@@ -77,12 +77,12 @@ const teams = [
     tagline: "Exploring cutting-edge technologies and solutions",
     members: [
       { name: "Ananya", label: "Design Team", linkedin: "", email: "ananya@example.com", photo: "/profiles/Ananya Verma.jpg" },
-      { name: "Ananya Seeta", label: "Editorial Team", linkedin: "https://www.linkedin.com/in/ananya-seeta-2911092ba/", email: "ananyas@example.com", photo: "/profiles/Ananya Seeta.png" },
-      { name: "Dr Asma Iqbal", label: "Management Team", linkedin: "", email: "asma@example.com", photo: "/profiles/Asma Iqbal.png" },
+      { name: "Ananya Seeta", label: "Editorial Team", linkedin: "https://www.linkedin.com/in/ananya-seeta-2911092ba/", email: "23f3000678@ds.study.iitm.ac.in", photo: "/profiles/Ananya Seeta.png" },
+      { name: "Dr Asma Iqbal", label: "Management Team", linkedin: "", email: "21f1001894@ds.study.iitm.ac.in", photo: "/profiles/Asma Iqbal.png" },
       { name: "Harsheen Kaur", label: "Research Team", linkedin: "https://www.linkedin.com/in/harsheen-kour-8b801834a/", email: "harsheen@example.com", photo: "/profiles/Harsheen kour.jpeg" },
-      { name: "Meher Soni", label: "Research Team", linkedin: "http://linkedin.com/in/meher-soni-7a99bb296/", email: "meher@example.com", photo: "/profiles/Meher Soni.jpg" },
+      { name: "Meher Soni", label: "Research Team", linkedin: "http://linkedin.com/in/meher-soni-7a99bb296/", email: "24f3005108@ds.study.iitm.ac.in", photo: "/profiles/Meher Soni.jpg" },
       { name: "Muskan Y. Memon", label: "Content Team", linkedin: "http://www.linkedin.com/in/muskan-memon-4ab388341", email: "muskan@example.com", photo: "/profiles/Muskan Memon.jpg" },
-      { name: "Rakshana", label: "Design Team", linkedin: "https://www.linkedin.com/in/rakshna-r-087674370/", email: "rakshana@example.com", photo: "/profiles/RAKSHNA.R.jpg" },
+      { name: "Rakshana", label: "Design Team", linkedin: "https://www.linkedin.com/in/rakshna-r-087674370/", email: "25f2003109@ds.study.iitm.ac.in", photo: "/profiles/RAKSHNA.R.jpg" },
       { name: "Roshini K", label: "Content Team", linkedin: "http://www.linkedin.com/in/roshini-k-91763b2a5", email: "roshini@example.com", photo: "/profiles/Roshini_K.jpg" },
       { name: "Tanishka K Wagh", label: "Editorial Team", linkedin: "", email: "tanishka@example.com", photo: "/profiles/TanishkaWagh.jpg" },
     ],

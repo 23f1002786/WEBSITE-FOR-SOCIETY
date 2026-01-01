@@ -28,13 +28,6 @@ const testimonials = [
 
 const teams = [
   {
-    name: "Design Team",
-    members: [
-      { name: "Shreya Singh", linkedin: "http://www.linkedin.com/in/shreya-singh-1101ss2006", email: "24f2005569@ds.study.iitm.ac.in", photo: "/public/profiles/Shreya Singh.jpg" },
-      { name: "Adya Jha", linkedin: "", email: "23f3003352@ds.study.iitm.ac.in", photo: "/public/profiles/Adya Jha.jpg" },
-    ],
-  },
-  {
     name: "Internal Community Managers",
     members: [
       { name: "Mili Parasher", linkedin: "https://www.linkedin.com/in/mili-parashar/", email: "23f2004291@ds.study.iitm.ac.in", photo: "/profiles/Mili Parashar.jpg" },
@@ -46,6 +39,14 @@ const teams = [
     ],
   },
   {
+    name: "Content Creation",
+    members: [
+      { name: "Radhika", linkedin: "https://www.linkedin.com/in/radhika-singh-chauhan-5493a0321?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app", email: "24f3002832@ds.study.iitm.ac.in", photo: "/profiles/Radhika Singh Chauhan.jpg" },
+      { name: "Adrija Chatterjee", linkedin: "https://www.linkedin.com/in/adrija-chatterjee-b14349357?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app", email: "24f2000867@ds.study.iitm.ac.in", photo: "/profiles/Adrija Chatterjee.jpg" },
+      { name: "Adrija Chakroborty", linkedin: "https://www.linkedin.com/in/adrija-chakrabarty-503879220/", email: "25f2000399@ds.study.iitm.ac.in", photo: "/profiles/Adrija Chakrabarty.jpg" },
+    ],
+  },
+  {
     name: "Sponsorship, Outreach & PR",
     members: [
       { name: "Nashwa S P", label: "Sponsorship Team", linkedin: "", email: "23f2002294@ds.study.iitm.ac.in", photo: "/profiles/Nashwa.png" },
@@ -53,11 +54,10 @@ const teams = [
     ],
   },
   {
-    name: "Content Creation",
+    name: "Design Team",
     members: [
-      { name: "Radhika", linkedin: "https://www.linkedin.com/in/radhika-singh-chauhan-5493a0321?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app", email: "24f3002832@ds.study.iitm.ac.in", photo: "/profiles/Radhika Singh Chauhan.jpg" },
-      { name: "Adrija Chatterjee", linkedin: "https://www.linkedin.com/in/adrija-chatterjee-b14349357?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app", email: "24f2000867@ds.study.iitm.ac.in", photo: "/profiles/Adrija Chatterjee.jpg" },
-      { name: "Adrija Chakroborty", linkedin: "https://www.linkedin.com/in/adrija-chakrabarty-503879220/", email: "25f2000399@ds.study.iitm.ac.in", photo: "/profiles/Adrija Chakrabarty.jpg" },
+      { name: "Shreya Singh", linkedin: "http://www.linkedin.com/in/shreya-singh-1101ss2006", email: "24f2005569@ds.study.iitm.ac.in", photo: "/profiles/Shreya Singh.jpg" },
+      { name: "Adya Jha", linkedin: "", email: "23f3003352@ds.study.iitm.ac.in", photo: "/profiles/Adya Jha.jpg" },
     ],
   },
   {

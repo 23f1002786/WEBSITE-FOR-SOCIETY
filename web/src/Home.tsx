@@ -23,8 +23,9 @@ const upcomingEvents: Event[] = [
   {
     title: "CipherTrace",
     date: "Margazhi'26",
-    summary: "A mystery-based digital hunt using cryptography, steganography, and OSINT.",
+    summary: "CipherTrace is an immersive digital detective challenge where participants follow clues across websites and social media to crack codes, uncover hidden flags, and close a cyber‑mystery case.",
     cta: "Register Now",
+    link: "https://iitmparadox.org/events/23",
   },
 ];
 
@@ -32,20 +33,20 @@ const pastEvents: Event[] = [
   {
     title: "CIA - Classify, Infer, Automate",
     date: "Saavan’25",
-    summary: "A multi-round cyber challenge blending AI/ML, OSINT, and cybersecurity strategy.",
+    summary: "Organized in collaboration with the Tech Society, CIA was a three-round cyber intelligence competition that aimed to give participants a hands-on experience of real-world cyber operations.",
     cta: "Read notes",
   },
     {
     title: "SheCodes - Code4GovTech",
     date: "September 2025",
-    summary: "A week-long open-source program with workshops and mentored project contributions.",
+    summary: "A week-long open-source program by Code4GovTech with workshops and mentored project contributions.",
     cta: "View recap",
   },
 
   {
     title: "Python Coding Challenge",
-    date: "Saavan’25",
-    summary: "A Python coding contest focused on logic, problem-solving, and real-world challenges.",
+    date: "Saavan’23",
+    summary: "The event was designed to encourage participants to strengthen their problem-solving skills while applying logical thinking to real-world–style programming challenges.",
     cta: "Read notes",
   },
 ];
@@ -132,15 +133,15 @@ export default function Home() {
               <h2 className="display text-2xl sm:text-3xl md:text-4xl lg:text-5xl leading-tight">Community-first, always.</h2>
               <div className="grid gap-5 text-lg leading-relaxed text-[color:var(--text-secondary)]">
                 <div className="panel grain border-l-4 border-[color:var(--teal)] bg-gradient-to-r from-[color:var(--teal)]/10 to-transparent p-6 shadow-lg hover:shadow-xl transition-shadow">
-                  <div className="font-semibold text-[color:var(--teal-dark)]">🤝 Hands-On Learning</div>
+                  <div className="font-semibold text-[color:var(--teal-dark)]">Hands-On Learning</div>
                   <p className="mt-2">Facilitating hands-on learning through workshops, skill-building challenges, initiatives, and hackathons that build confidence and practical skills.</p>
                 </div>
                 <div className="panel grain border-l-4 border-[color:var(--purple)] bg-gradient-to-r from-[color:var(--purple)]/10 to-transparent p-6 shadow-lg hover:shadow-xl transition-shadow">
-                  <div className="font-semibold text-[color:var(--purple-dark)]">🎨 Industry Exposure</div>
+                  <div className="font-semibold text-[color:var(--purple-dark)]">Industry Exposure</div>
                   <p className="mt-2">Organising guest lectures, industry talks, networking meetups, and community panels to encourage exposure and professional interaction.</p>
                 </div>
                 <div className="panel grain border-l-4 border-[color:var(--coral)] bg-gradient-to-r from-[color:var(--coral)]/10 to-transparent p-6 shadow-lg hover:shadow-xl transition-shadow">
-                  <div className="font-semibold text-[color:var(--coral-dark)]">📚 Mentorship</div>
+                  <div className="font-semibold text-[color:var(--coral-dark)]">Mentorship</div>
                   <p className="mt-2">Providing mentorship and guidance through seniors, alumni, professionals, and peer-learning programs.</p>
                 </div>
               </div>
@@ -202,7 +203,6 @@ export default function Home() {
                     <div>
                       <div className="eyebrow text-[color:var(--sage)] opacity-95 text-center text-xl">Our Vision</div>
                       <div className="mt-1 mb-2 text-xs sm:text-sm text-[color:var(--white)] text-center italic opacity-80">"Empowering women to grow, connect, and lead in tech—together."</div>
-                      <div className="display text-3xl leading-snug text-[color:var(--sage)]">&ldquo;</div>
                       <p className="text-xs sm:text-sm md:text-base leading-relaxed text-[color:var(--text-primary)]">
                         <p>
                           We envision a community that extends beyond academic learning and events, recognising the
@@ -216,7 +216,6 @@ export default function Home() {
                         </p>
                       </p>
                     </div>
-                    <div className="display text-3xl leading-snug text-[color:var(--sage)]">&rdquo;</div>
                     <div className="h-1 w-16 rounded-full bg-gradient-to-r from-[color:var(--gold)] to-[color:var(--gold)]/60 opacity-90 mx-auto my-6"></div>
 
                     <div className="flex items-center gap-4">
@@ -284,6 +283,7 @@ export default function Home() {
                       date={event.date}
                       summary={event.summary}
                       cta={event.cta}
+                      link={event.link}
                       index={idx}
                     />
                   </div>
@@ -466,7 +466,7 @@ export default function Home() {
               LinkedIn
             </a>
             <a href="https://www.instagram.com/womenintech.iitm/" target="_blank" rel="noopener noreferrer" className="flex items-center gap-1 hover:underline">
-              <svg className="h-4 w-4" fill="white" viewBox="0 0 24 24">
+              <svg className="h-4 w-4" fill="currentColor" viewBox="0 0 24 24">
                 <path d="M12.017 0C8.396 0 7.609.034 6.298.1 4.993.166 4.087.334 3.285.634c-.8.3-1.482.7-2.165 1.383C.437 2.7.037 3.382 0 4.182c-.3.8-.468 1.706-.534 3.011C-.1 8.504-.134 9.291-.134 12.912s.034 4.408.1 5.719c.066 1.305.234 2.211.534 3.011.3.8.7 1.482 1.383 2.165.683.683 1.365 1.083 2.165 1.383.8.3 1.706.468 3.011.534 1.311.066 2.098.1 5.719.1s4.408-.034 5.719-.1c1.305-.066 2.211-.234 3.011-.534.8-.3 1.482-.7 2.165-1.383.683-.683 1.083-1.365 1.383-2.165.3-.8.468-1.706.534-3.011.066-1.311.1-2.098.1-5.719s-.034-4.408-.1-5.719c-.066-1.305-.234-2.211-.534-3.011-.3-.8-.7-1.482-1.383-2.165C21.3.7 20.618.3 19.818 0c-.8-.3-1.706-.468-3.011-.534C16.496-.1 15.709-.134 12.088-.134 12.053-.134 12.017 0 12.017 0zm0 1.801c3.578 0 4.352.034 5.888.1 1.444.066 2.238.3 2.778.5.683.267 1.167.617 1.683 1.133.517.517.867 1 .133 1.683.2.54.434 1.334.5 2.778.066 1.536.1 2.31.1 5.888s-.034 4.352-.1 5.888c-.066 1.444-.3 2.238-.5 2.778-.267.683-.617 1.167-1.133 1.683-.517.517-1 .867-1.683 1.133-.54.2-1.334.434-2.778.5-1.536.066-2.31.1-5.888.1s-4.352-.034-5.888-.1c-1.444-.066-2.238-.3-2.778-.5-.683-.267-1.167-.617-1.683-1.133C1.617 20.617 1.267 20.1.583 19.417c-.2-.54-.434-1.334-.5-2.778-.066-1.536-.1-2.31-.1-5.888s.034-4.352.1-5.888c.066-1.444.3-2.238.5-2.778.267-.683.617-1.167 1.133-1.683.517-.517.867-1 .133-1.683.2-.54.434-1.334.5-2.778.066-1.536.1-2.31.1-5.888z"/>
                 <path d="M12.017 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zm0 10.162a4 4 0 110-8 4 4 0 010 8z"/>
                 <circle cx="17.006" cy="6.994" r="1.4"/>

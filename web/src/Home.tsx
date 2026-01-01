@@ -181,14 +181,14 @@ export default function Home() {
                 </div>
               </div>
               <div className="grid gap-4 sm:grid-cols-2">
-                <div className="panel rounded-2xl border-2 border-[color:var(--teal)] bg-gradient-to-br from-[color:var(--teal)]/15 to-[color:var(--teal)]/5 p-5 text-center shadow-lg hover:shadow-xl transition-all">
+                {/* <div className="panel rounded-2xl border-2 border-[color:var(--teal)] bg-gradient-to-br from-[color:var(--teal)]/15 to-[color:var(--teal)]/5 p-5 text-center shadow-lg hover:shadow-xl transition-all">
                   <div className="display mb-2 text-3xl font-bold text-[color:var(--teal)]">800+</div>
                   <div className="text-sm font-medium text-[color:var(--text-primary)]">Active members</div>
                 </div>
                 <div className="panel rounded-2xl border-2 border-[color:var(--coral)] bg-gradient-to-br from-[color:var(--coral)]/15 to-[color:var(--coral)]/5 p-5 text-center shadow-lg hover:shadow-xl transition-all">
-                  <div className="display mb-2 text-3xl font-bold text-[color:var(--coral)]">24</div>
+                  <div className="display mb-2 text-3xl font-bold text-[color:var(--coral)]">5</div>
                   <div className="text-sm font-medium text-[color:var(--text-primary)]">Events this year</div>
-                </div>
+                </div> */}
               </div>
             </FadeIn>
           </div>
@@ -252,7 +252,7 @@ export default function Home() {
           </div>
         </section>
 
-        <section id="events" className="page-shell py-16">
+        <section id="events" className="w-full max-w-[1400px] mx-auto px-6 py-16">
           <div className="mb-10 flex flex-col items-center gap-4 text-center">
             <FadeIn className="flex flex-col gap-3">
               <div className="eyebrow">Events</div>
@@ -282,9 +282,9 @@ export default function Home() {
             </div>
           </div>
           {eventTab === "past" ? (
-            <div className="flex flex-wrap justify-center gap-6 md:justify-start">
+            <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3">
               {pastEvents.map((event, idx) => (
-                <div key={event.title} className="flex-shrink-0 w-full sm:w-1/2 lg:w-1/3 xl:w-80 2xl:w-96">
+                <div key={event.title}>
                   <EventCard3D
                     title={event.title}
                     date={event.date}
@@ -296,11 +296,27 @@ export default function Home() {
               ))}
             </div>
           ) : (
-            <div className="text-center py-8">
-              <FadeIn>
-                <p className="text-xl text-[color:var(--text-secondary)]">Stay tuned for upcoming events!</p>
-              </FadeIn>
-            </div>
+            upcomingEvents.length > 0 ? (
+              <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3">
+                {upcomingEvents.map((event, idx) => (
+                  <div key={event.title}>
+                    <EventCard3D
+                      title={event.title}
+                      date={event.date}
+                      summary={event.summary}
+                      cta={event.cta}
+                      index={idx}
+                    />
+                  </div>
+                ))}
+              </div>
+            ) : (
+              <div className="text-center py-8">
+                <FadeIn>
+                  <p className="text-xl text-[color:var(--text-secondary)]">Stay tuned for upcoming events!</p>
+                </FadeIn>
+              </div>
+            )
           )}
         </section>
 

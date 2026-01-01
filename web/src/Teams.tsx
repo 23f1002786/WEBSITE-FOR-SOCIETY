@@ -7,25 +7,6 @@ import { ThemeToggle } from "@/components/theme-toggle";
 import { ScrollReveal } from "@/components/scroll-reveal";
 import { Sidebar } from "@/components/sidebar";
 
-const testimonials = [
-//   {
-//     quote:
-//       "I never felt like I had to prove I was 'technical enough'. The space stayed academic and kind at the same time.",
-//     name: "Ananya K.",
-//     role: "Learning Studio participant",
-//   },
-//   {
-//     quote: "The mentorship circles are thoughtful and paced. No pressure to perform, just steady growth.",
-//     name: "Meera S.",
-//     role: "Council applicant",
-//   },
-//   {
-//     quote: "Events start with people before projects. It changes how confident you feel walking into the room.",
-//     name: "Shruti R.",
-//     role: "Community member",
-//   },
-];
-
 const teams = [
   {
     name: "Internal Community Managers",
@@ -221,7 +202,6 @@ export default function Teams() {
                   <FadeIn key={currentTeam} className="panel grain flex flex-col gap-6 p-8 min-w-[800px] max-w-4xl">
                     <div className="text-center">
                       <div className="meta text-2xl mb-2">{teams[currentTeam].name}</div>
-                      <p className="text-[color:var(--text-secondary)] italic">{teams[currentTeam].tagline}</p>
                     </div>
                     <div className="border-t border-[color:var(--border)] pt-6 flex justify-center w-full">
                       {teams[currentTeam].members.length < 3 ? (
@@ -344,7 +324,7 @@ export default function Teams() {
           <div className="font-semibold text-[color:var(--text-primary)]">Women in Tech Society · IIT Madras BS</div>
           <div className="flex flex-wrap gap-4">
             <a href="mailto:wits@students.iitm.ac.in" className="flex items-center gap-1 hover:underline">
-              <svg className="h-4 w-4" fill="white" viewBox="0 0 24 24">
+              <svg className="h-4 w-4" fill="currentColor" viewBox="0 0 24 24">
                 <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z" />
               </svg>
               Email
@@ -356,11 +336,7 @@ export default function Teams() {
               LinkedIn
             </a>
             <a href="https://instagram.com/wits_iitmadras_bs" target="_blank" rel="noopener noreferrer" className="flex items-center gap-1 hover:underline">
-              <svg className="h-4 w-4" fill="white" viewBox="0 0 24 24">
-                <path d="M12.017 0C8.396 0 7.609.034 6.298.1 4.993.166 4.087.334 3.285.634c-.8.3-1.482.7-2.165 1.383C.437 2.7.037 3.382 0 4.182c-.3.8-.468 1.706-.534 3.011C-.1 8.504-.134 9.291-.134 12.912s.034 4.408.1 5.719c.066 1.305.234 2.211.534 3.011.3.8.7 1.482 1.383 2.165.683.683 1.365 1.083 2.165 1.383.8.3 1.706.468 3.011.534 1.311.066 2.098.1 5.719.1s4.408-.034 5.719-.1c1.305-.066 2.211-.234 3.011-.534.8-.3 1.482-.7 2.165-1.383.683-.683 1.083-1.365 1.383-2.165.3-.8.468-1.706.534-3.011.066-1.311.1-2.098.1-5.719s-.034-4.408-.1-5.719c-.066-1.305-.234-2.211-.534-3.011-.3-.8-.7-1.482-1.383-2.165C21.3.7 20.618.3 19.818 0c-.8-.3-1.706-.468-3.011-.534C16.496-.1 15.709-.134 12.088-.134 12.053-.134 12.017 0 12.017 0zm0 1.801c3.578 0 4.352.034 5.888.1 1.444.066 2.238.3 2.778.5.683.267 1.167.617 1.683 1.133.517.517.867 1 .133 1.683.2.54.434 1.334.5 2.778.066 1.536.1 2.31.1 5.888s-.034 4.352-.1 5.888c-.066 1.444-.3 2.238-.5 2.778-.267.683-.617 1.167-1.133 1.683-.517.517-1 .867-1.683 1.133-.54.2-1.334.434-2.778.5-1.536.066-2.31.1-5.888.1s-4.352-.034-5.888-.1c-1.444-.066-2.238-.3-2.778-.5-.683-.267-1.167-.617-1.683-1.133C1.617 20.617 1.267 20.1.583 19.417c-.2-.54-.434-1.334-.5-2.778-.066-1.536-.1-2.31-.1-5.888s.034-4.352.1-5.888c.066-1.444.3-2.238.5-2.778.267-.683.617-1.167 1.133-1.683.517-.517.867-1 .133-1.683.2-.54.434-1.334.5-2.778.066-1.536.1-2.31.1-5.888z"/>
-                <path d="M12.017 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zm0 10.162a4 4 0 110-8 4 4 0 010 8z"/>
-                <circle cx="17.006" cy="6.994" r="1.4"/>
-              </svg>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640" className="h-4 w-4" fill="currentColor"><path d="M320.3 205C256.8 204.8 205.2 256.2 205 319.7C204.8 383.2 256.2 434.8 319.7 435C383.2 435.2 434.8 383.8 435 320.3C435.2 256.8 383.8 205.2 320.3 205zM319.7 245.4C360.9 245.2 394.4 278.5 394.6 319.7C394.8 360.9 361.5 394.4 320.3 394.6C279.1 394.8 245.6 361.5 245.4 320.3C245.2 279.1 278.5 245.6 319.7 245.4zM413.1 200.3C413.1 185.5 425.1 173.5 439.9 173.5C454.7 173.5 466.7 185.5 466.7 200.3C466.7 215.1 454.7 227.1 439.9 227.1C425.1 227.1 413.1 215.1 413.1 200.3zM542.8 227.5C541.1 191.6 532.9 159.8 506.6 133.6C480.4 107.4 448.6 99.2 412.7 97.4C375.7 95.3 264.8 95.3 227.8 97.4C192 99.1 160.2 107.3 133.9 133.5C107.6 159.7 99.5 191.5 97.7 227.4C95.6 264.4 95.6 375.3 97.7 412.3C99.4 448.2 107.6 480 133.9 506.2C160.2 532.4 191.9 540.6 227.8 542.4C264.8 544.5 375.7 544.5 412.7 542.4C448.6 540.7 480.4 532.5 506.6 506.2C532.8 480 541 448.2 542.8 412.3C544.9 375.3 544.9 264.5 542.8 227.5zM495 452C487.2 471.6 472.1 486.7 452.4 494.6C422.9 506.3 352.9 503.6 320.3 503.6C287.7 503.6 217.6 506.2 188.2 494.6C168.6 486.8 153.5 471.7 145.6 452C133.9 422.5 136.6 352.5 136.6 319.9C136.6 287.3 134 217.2 145.6 187.8C153.4 168.2 168.5 153.1 188.2 145.2C217.7 133.5 287.7 136.2 320.3 136.2C352.9 136.2 423 133.6 452.4 145.2C472 153 487.1 168.1 495 187.8C506.7 217.3 504 287.3 504 319.9C504 352.5 506.7 422.6 495 452z"/></svg>
               Instagram
             </a>
             {/* <a href="https://twitter.com/wits_iitmadras" target="_blank" rel="noopener noreferrer" className="flex items-center gap-1 hover:underline">

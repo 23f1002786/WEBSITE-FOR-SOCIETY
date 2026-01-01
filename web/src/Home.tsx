@@ -3,10 +3,8 @@ import { useState, Suspense } from "react";
 import { FadeIn } from "@/components/fade-in";
 import { Splash } from "@/components/splash";
 import { ThemeToggle } from "@/components/theme-toggle";
-import { FloatingGeometryScene } from "@/components/floating-geometry";
 import { EventCard3D } from "@/components/event-card-3d";
 import { WaveTransformationScene } from "@/components/wave-transformation-3d";
-import { CommunityNetworkScene } from "@/components/community-network-3d";
 import { GrowthHelixScene } from "@/components/growth-helix-3d";
 import { ProgressParticlesScene } from "@/components/progress-particles-3d";
 import { MerryGoRoundScene } from "@/components/merry-go-round-3d";
@@ -49,25 +47,6 @@ const pastEvents: Event[] = [
     date: "Saavan’25",
     summary: "A Python coding contest focused on logic, problem-solving, and real-world challenges.",
     cta: "Read notes",
-  },
-];
-
-const testimonials = [
-  {
-    quote:
-      "I never felt like I had to prove I was 'technical enough'. The space stayed academic and kind at the same time.",
-    name: "Ananya K.",
-    role: "Learning Studio participant",
-  },
-  {
-    quote: "The mentorship circles are thoughtful and paced. No pressure to perform, just steady growth.",
-    name: "Meera S.",
-    role: "Council applicant",
-  },
-  {
-    quote: "Events start with people before projects. It changes how confident you feel walking into the room.",
-    name: "Shruti R.",
-    role: "Community member",
   },
 ];
 
@@ -218,7 +197,7 @@ export default function Home() {
                 </div>
               </div>
             </FadeIn>
-                <FadeIn delay={0.15} className="panel grain flex flex-col gap-6 border-2 border-[color:var(--sage)] bg-gradient-to-br from-[color:var(--sage)]/20 to-[color:var(--coral)]/10 p-8 shadow-2xl h-full" style={{ minHeight: '100%' }}>
+                <FadeIn delay={0.15} className="panel grain flex flex-col gap-6 border-2 border-[color:var(--sage)] bg-gradient-to-br from-[color:var(--sage)]/20 to-[color:var(--coral)]/10 p-8 shadow-2xl h-full min-h-full">
                   <div className="flex flex-col flex-grow justify-between h-full">
                     <div>
                       <div className="eyebrow text-[color:var(--sage)] opacity-95 text-center text-xl">Our Vision</div>

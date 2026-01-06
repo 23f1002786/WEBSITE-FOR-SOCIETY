@@ -170,14 +170,14 @@ export default function Teams() {
                 Our teams work tirelessly to create inclusive spaces, foster learning, and build lasting connections.
               </p>
             </FadeIn>
-            <div className="flex flex-col items-center gap-8">
-              <div className="flex flex-col items-center w-full" style={{maxWidth: '1152px'}}>
-                <div className="flex flex-wrap gap-2 mb-4 w-full justify-center">
+            <div className="flex flex-col items-center gap-4 sm:gap-8 w-full">
+              <div className="flex flex-col items-center w-full max-w-full px-4 sm:px-0">
+                <div className="flex flex-wrap gap-1 sm:gap-2 mb-4 w-full justify-center">
                   {teams.map((team, index) => (
                     <button
                       key={index}
                       onClick={() => setCurrentTeam(index)}
-                      className={`px-2 py-1 rounded-md text-xs font-normal transition-all duration-200 border ${
+                      className={`px-2 py-1 rounded-md text-xs font-normal transition-all duration-200 border whitespace-nowrap overflow-hidden text-ellipsis ${
                         index === currentTeam
                           ? 'bg-[color:var(--surface)] text-[color:var(--purple)] border-[color:var(--purple)] shadow'
                           : 'bg-[color:var(--surface)] text-[color:var(--text-primary)] border-[color:var(--border)] hover:bg-[color:var(--purple)] hover:text-white hover:border-[color:var(--purple)]'
@@ -188,47 +188,47 @@ export default function Teams() {
                     </button>
                   ))}
                 </div>
-                <div className="flex items-center gap-6 w-full justify-center">
+                <div className="flex items-center gap-2 sm:gap-6 w-full justify-center overflow-x-auto">
                   <button
                     onClick={prevTeam}
-                    className="p-3 rounded-full bg-[color:var(--surface)] hover:bg-[color:var(--purple)] hover:text-white transition-colors shadow-lg"
+                    className="p-2 sm:p-3 rounded-full bg-[color:var(--surface)] hover:bg-[color:var(--purple)] hover:text-white transition-colors shadow-lg flex-shrink-0"
                     aria-label="Previous team"
                   >
-                    <svg className="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <svg className="h-5 w-5 sm:h-6 sm:w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
                     </svg>
                   </button>
                   
-                  <FadeIn key={currentTeam} className="panel grain flex flex-col gap-6 p-8 min-w-[800px] max-w-4xl">
+                  <FadeIn key={currentTeam} className="panel grain flex flex-col gap-6 p-4 sm:p-6 md:p-8 w-full max-w-4xl">
                     <div className="text-center">
-                      <div className="meta text-2xl mb-2">{teams[currentTeam].name}</div>
+                      <div className="meta text-xl sm:text-2xl mb-2">{teams[currentTeam].name}</div>
                     </div>
                     <div className="border-t border-[color:var(--border)] pt-6 flex justify-center w-full">
                       {teams[currentTeam].members.length < 3 ? (
-                        <div className="flex gap-4 justify-center w-full">
+                        <div className="flex flex-wrap gap-2 sm:gap-4 justify-center w-full">
                           {teams[currentTeam].members.map((member, memberIndex) => (
                             <div
                               key={memberIndex}
-                              className={`flex items-center gap-4 rounded-xl bg-[color:var(--bg)] border border-[color:var(--border)] hover:border-[color:var(--purple)] transition-colors ${member.name.trim().split(/\s+/).length > 2 ? 'py-2 px-4' : 'p-4'}`}
-                              style={{ minWidth: '220px', maxWidth: '220px' }}
+                              className={`flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4 rounded-xl bg-[color:var(--bg)] border border-[color:var(--border)] hover:border-[color:var(--purple)] transition-colors p-3 sm:p-4 ${member.name.trim().split(/\s+/).length > 2 ? 'sm:py-2 sm:px-4' : ''}`}
+                              style={{ minWidth: 'auto', maxWidth: '100%', flex: '1 1 calc(50% - 0.5rem)' }}
                             >
-                              <div className="flex h-12 w-12 items-center justify-center rounded-full bg-[color:var(--purple)] text-white font-semibold flex-shrink-0 overflow-hidden">
+                              <div className="flex h-10 w-10 sm:h-12 sm:w-12 items-center justify-center rounded-full bg-[color:var(--purple)] text-white font-semibold flex-shrink-0 overflow-hidden">
                                 {member.photo ? (
                                   <img src={member.photo} alt={member.name} className="h-full w-full object-cover" />
                                 ) : (
                                   member.name.split(" ").map(part => part[0]).join("")
                                 )}
                               </div>
-                              <span className="text-[color:var(--text-primary)] font-medium flex flex-col items-center">
+                              <span className="text-[color:var(--text-primary)] font-medium flex flex-col items-center sm:items-start text-xs sm:text-sm">
                                 {member.name}
                                 {(teams[currentTeam].name === "Newsletter Team" || teams[currentTeam].name === "Sponsorship, Outreach & PR" || teams[currentTeam].name === "Internal Community Managers") && member.label && (
                                   <span className="mt-0.5 text-xs text-[color:var(--purple)] font-semibold">{member.label}</span>
                                 )}
-                                <span className="flex gap-3 mt-3 justify-center items-center">
+                                <span className="flex gap-2 sm:gap-3 mt-2 sm:mt-3 justify-center sm:justify-start items-center">
                                   {member.linkedin && (
                                     <a href={member.linkedin} target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" className="hover:text-[color:var(--purple)] flex items-center justify-center">
-                                      <span className="inline-flex items-center justify-center rounded-full bg-[color:var(--surface)] border border-[color:var(--border)] w-7 h-7">
-                                        <svg className="h-4 w-4" fill="currentColor" viewBox="0 0 24 24">
+                                      <span className="inline-flex items-center justify-center rounded-full bg-[color:var(--surface)] border border-[color:var(--border)] w-6 h-6 sm:w-7 sm:h-7">
+                                        <svg className="h-3 w-3 sm:h-4 sm:w-4" fill="currentColor" viewBox="0 0 24 24">
                                           <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
                                         </svg>
                                       </span>
@@ -236,8 +236,8 @@ export default function Teams() {
                                   )}
                                   {member.email && (
                                     <a href={`mailto:${member.email}`} aria-label="Email" className="hover:text-[color:var(--purple)] flex items-center justify-center">
-                                      <span className="inline-flex items-center justify-center rounded-full bg-[color:var(--surface)] border border-[color:var(--border)] w-7 h-7">
-                                        <svg className="h-5 w-5" fill="currentColor" viewBox="0 0 24 24">
+                                      <span className="inline-flex items-center justify-center rounded-full bg-[color:var(--surface)] border border-[color:var(--border)] w-6 h-6 sm:w-7 sm:h-7">
+                                        <svg className="h-3 w-3 sm:h-4 sm:w-4" fill="currentColor" viewBox="0 0 24 24">
                                           <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
                                         </svg>
                                       </span>
@@ -249,26 +249,26 @@ export default function Teams() {
                           ))}
                         </div>
                       ) : (
-                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 justify-items-center">
+                        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4 justify-items-center w-full">
                           {teams[currentTeam].members.map((member, memberIndex) => (
-                            <div key={memberIndex} className="flex items-center gap-4 p-4 rounded-xl bg-[color:var(--bg)] border border-[color:var(--border)] hover:border-[color:var(--purple)] transition-colors" style={{ minWidth: '220px', maxWidth: '220px' }}>
-                              <div className="flex h-12 w-12 items-center justify-center rounded-full bg-[color:var(--purple)] text-white font-semibold flex-shrink-0 overflow-hidden">
+                            <div key={memberIndex} className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4 p-3 sm:p-4 rounded-xl bg-[color:var(--bg)] border border-[color:var(--border)] hover:border-[color:var(--purple)] transition-colors w-full" style={{ minWidth: 'auto', maxWidth: '100%' }}>
+                              <div className="flex h-10 w-10 sm:h-12 sm:w-12 items-center justify-center rounded-full bg-[color:var(--purple)] text-white font-semibold flex-shrink-0 overflow-hidden">
                                 {member.photo ? (
                                   <img src={member.photo} alt={member.name} className="h-full w-full object-cover" />
                                 ) : (
                                   member.name.split(" ").map(part => part[0]).join("")
                                 )}
                               </div>
-                              <span className="text-[color:var(--text-primary)] font-medium flex flex-col items-center">
+                              <span className="text-[color:var(--text-primary)] font-medium flex flex-col items-center sm:items-start text-xs sm:text-sm">
                                 {member.name}
                                 {(teams[currentTeam].name === "Newsletter Team" || teams[currentTeam].name === "Sponsorship, Outreach & PR" || teams[currentTeam].name === "Internal Community Managers") && member.label && (
                                   <span className="mt-0.5 text-xs text-[color:var(--purple)] font-semibold">{member.label}</span>
                                 )}
-                                <span className="flex gap-3 mt-3 justify-center items-center">
+                                <span className="flex gap-2 sm:gap-3 mt-2 sm:mt-3 justify-center sm:justify-start items-center">
                                   {member.linkedin && (
                                     <a href={member.linkedin} target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" className="hover:text-[color:var(--purple)] flex items-center justify-center">
-                                      <span className="inline-flex items-center justify-center rounded-full bg-[color:var(--surface)] border border-[color:var(--border)] w-7 h-7">
-                                        <svg className="h-4 w-4" fill="currentColor" viewBox="0 0 24 24">
+                                      <span className="inline-flex items-center justify-center rounded-full bg-[color:var(--surface)] border border-[color:var(--border)] w-6 h-6 sm:w-7 sm:h-7">
+                                        <svg className="h-3 w-3 sm:h-4 sm:w-4" fill="currentColor" viewBox="0 0 24 24">
                                           <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
                                         </svg>
                                       </span>
@@ -276,8 +276,8 @@ export default function Teams() {
                                   )}
                                   {member.email && (
                                     <a href={`mailto:${member.email}`} aria-label="Email" className="hover:text-[color:var(--purple)] flex items-center justify-center">
-                                      <span className="inline-flex items-center justify-center rounded-full bg-[color:var(--surface)] border border-[color:var(--border)] w-7 h-7">
-                                        <svg className="h-5 w-5" fill="currentColor" viewBox="0 0 24 24">
+                                      <span className="inline-flex items-center justify-center rounded-full bg-[color:var(--surface)] border border-[color:var(--border)] w-6 h-6 sm:w-7 sm:h-7">
+                                        <svg className="h-3 w-3 sm:h-4 sm:w-4" fill="currentColor" viewBox="0 0 24 24">
                                           <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
                                         </svg>
                                       </span>
@@ -294,10 +294,10 @@ export default function Teams() {
                   
                   <button
                     onClick={nextTeam}
-                    className="p-3 rounded-full bg-[color:var(--surface)] hover:bg-[color:var(--purple)] hover:text-white transition-colors shadow-lg"
+                    className="p-2 sm:p-3 rounded-full bg-[color:var(--surface)] hover:bg-[color:var(--purple)] hover:text-white transition-colors shadow-lg flex-shrink-0"
                     aria-label="Next team"
                   >
-                    <svg className="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <svg className="h-5 w-5 sm:h-6 sm:w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                     </svg>
                   </button>

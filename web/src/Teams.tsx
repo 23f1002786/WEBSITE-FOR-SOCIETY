@@ -3,7 +3,6 @@ import { useState } from "react";
 import { FadeIn } from "@/components/fade-in";
 import { Splash } from "@/components/splash";
 import { ThemeToggle } from "@/components/theme-toggle";
-// Updated team order and photo paths
 import { ScrollReveal } from "@/components/scroll-reveal";
 import { Sidebar } from "@/components/sidebar";
 

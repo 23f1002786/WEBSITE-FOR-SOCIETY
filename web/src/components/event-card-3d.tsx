@@ -33,7 +33,7 @@ export function EventCard3D({
       onHoverStart={() => enableFlip && !prefersReducedMotion && setIsFlipped(true)}
       onHoverEnd={() => enableFlip && !prefersReducedMotion && setIsFlipped(false)}
       onClick={() => enableFlip && prefersReducedMotion && setIsFlipped(!isFlipped)}
-      className={`group relative h-80 ${enableFlip ? 'cursor-pointer' : ''} overflow-hidden`}
+      className={`group relative h-80 w-full ${enableFlip ? 'cursor-pointer' : ''} overflow-hidden`}
     >
       <motion.div
         className="absolute inset-0 w-full h-full"

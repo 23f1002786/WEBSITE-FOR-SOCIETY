@@ -1,5 +1,10 @@
 @import "tailwindcss";
 
+html, body {
+  width: 100%;
+  overflow-x: hidden;
+}
+
 :root,
 html.light {
   /* LIGHT THEME - PRIMARY */
@@ -33,12 +38,10 @@ html.light {
   /* Legacy variables for compatibility */
   --charcoal: #1A1614;
   --charcoal-light: #4A4A52;
-  --warm-gray: #7A7A84;
   --accent-coral: #D97B7D;
   --accent-sage: #6B8E7F;
   --gold-light: #E8C8A3;
   --gold-dark: #B8844A;
-  --purple-dark-legacy: #4A3A6F;
   
   --radius: 8px;
   --space-1: 8px;
@@ -48,6 +51,7 @@ html.light {
   --space-5: 48px;
   --space-6: 64px;
   --max-width: 1100px;
+  --mobile-padding: 16px;
 }
 
 /* Dark theme - triggered by .dark class on html element */
@@ -83,12 +87,10 @@ html.dark {
   /* Legacy variables for compatibility */
   --charcoal: #F5F3EF;
   --charcoal-light: #C4C0B8;
-  --warm-gray: #9A9690;
   --accent-coral: #E9A8AA;
   --accent-sage: #9CBFA8;
   --gold-light: #F5D4B5;
   --gold-dark: #D4A574;
-  --purple-dark-legacy: #7A6AA8;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -124,41 +126,23 @@ html.dark {
     /* Legacy variables for compatibility */
     --charcoal: #F5F3EF;
     --charcoal-light: #C4C0B8;
-    --warm-gray: #9A9690;
     --accent-coral: #E9A8AA;
     --accent-sage: #9CBFA8;
     --gold-light: #F5D4B5;
     --gold-dark: #D4A574;
-    --purple-dark-legacy: #7A6AA8;
   }
 }
 
-body {
-  background: var(--bg);
-  color: var(--text-primary);
-  font-family: var(--font-body), "Source Serif 4", Georgia, serif;
-  letter-spacing: 0.01em;
-  min-height: 100vh;
-  margin: 0;
-  transition: background-color 0.5s ease, color 0.5s ease, border-color 0.5s ease;
+@media (max-width: 640px) {
+  .page-shell {
+    padding: var(--space-3) var(--mobile-padding);
+  }
 }
 
-* {
-  box-sizing: border-box;
-  transition-property: background-color, color, border-color, box-shadow;
-  transition-duration: 0.5s;
-  transition-timing-function: ease;
-}
-
-a {
-  color: inherit;
-  text-decoration: none;
-}
-
-.page-shell {
-  max-width: var(--max-width);
-  margin: 0 auto;
-  padding: var(--space-5) var(--space-2);
+@media (min-width: 768px) {
+  .page-shell {
+    padding: var(--space-5) var(--space-3);
+  }
 }
 
 .panel {

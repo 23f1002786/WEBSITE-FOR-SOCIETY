@@ -4,12 +4,12 @@ import { FadeIn } from "@/components/fade-in";
 import { Splash } from "@/components/splash";
 import { ThemeToggle } from "@/components/theme-toggle";
 import { EventCard3D } from "@/components/event-card-3d";
-import { WaveTransformationScene } from "@/components/wave-transformation-3d";
 import { GrowthHelixScene } from "@/components/growth-helix-3d";
 import { ProgressParticlesScene } from "@/components/progress-particles-3d";
 import { MerryGoRoundScene } from "@/components/merry-go-round-3d";
 import { ScrollReveal } from "@/components/scroll-reveal";
 import { Sidebar } from "@/components/sidebar";
+import { ErrorBoundary } from "@/components/error-boundary";
 
 type Event = {
   title: string;
@@ -74,9 +74,6 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-[color:var(--bg)] text-[color:var(--text-primary)]">
       <Sidebar />
-      <Suspense fallback={null}>
-        <WaveTransformationScene />
-      </Suspense>
       {showSplash ? <Splash onDone={handleSplashDone} /> : null}
       <ThemeToggle />
 
@@ -126,56 +123,48 @@ export default function Home() {
           </motion.div>
         </section>
 
-        <section className="page-shell py-16">
-          <div className="grid gap-16 lg:grid-cols-[1.2fr_0.8fr] lg:gap-20">
+        <section className="page-shell py-12 md:py-16">
+          <div className="grid gap-8 md:gap-12 lg:gap-16 lg:grid-cols-[1.2fr_0.8fr] w-full">
             <FadeIn className="flex flex-col gap-6">
               <div className="eyebrow">Our Objectives</div>
               <h2 className="display text-2xl sm:text-3xl md:text-4xl lg:text-5xl leading-tight">Community-first, always.</h2>
-              <div className="grid gap-5 text-lg leading-relaxed text-[color:var(--text-secondary)]">
-                <div className="panel grain border-l-4 border-[color:var(--teal)] bg-gradient-to-r from-[color:var(--teal)]/10 to-transparent p-6 shadow-lg hover:shadow-xl transition-shadow">
+              <div className="grid gap-4 md:gap-5 text-sm md:text-base leading-relaxed text-[color:var(--text-secondary)]">
+                <div className="panel grain border-l-4 border-[color:var(--teal)] bg-gradient-to-r from-[color:var(--teal)]/10 to-transparent p-4 md:p-6 shadow-lg hover:shadow-xl transition-shadow">
                   <div className="font-semibold text-[color:var(--teal-dark)]">Hands-On Learning</div>
-                  <p className="mt-2">Facilitating hands-on learning through workshops, skill-building challenges, initiatives, and hackathons that build confidence and practical skills.</p>
+                  <p className="mt-2 text-xs md:text-sm">Facilitating hands-on learning through workshops, skill-building challenges, initiatives, and hackathons that build confidence and practical skills.</p>
                 </div>
-                <div className="panel grain border-l-4 border-[color:var(--purple)] bg-gradient-to-r from-[color:var(--purple)]/10 to-transparent p-6 shadow-lg hover:shadow-xl transition-shadow">
+                <div className="panel grain border-l-4 border-[color:var(--purple)] bg-gradient-to-r from-[color:var(--purple)]/10 to-transparent p-4 md:p-6 shadow-lg hover:shadow-xl transition-shadow">
                   <div className="font-semibold text-[color:var(--purple-dark)]">Industry Exposure</div>
-                  <p className="mt-2">Organising guest lectures, industry talks, networking meetups, and community panels to encourage exposure and professional interaction.</p>
+                  <p className="mt-2 text-xs md:text-sm">Organising guest lectures, industry talks, networking meetups, and community panels to encourage exposure and professional interaction.</p>
                 </div>
-                <div className="panel grain border-l-4 border-[color:var(--coral)] bg-gradient-to-r from-[color:var(--coral)]/10 to-transparent p-6 shadow-lg hover:shadow-xl transition-shadow">
+                <div className="panel grain border-l-4 border-[color:var(--coral)] bg-gradient-to-r from-[color:var(--coral)]/10 to-transparent p-4 md:p-6 shadow-lg hover:shadow-xl transition-shadow">
                   <div className="font-semibold text-[color:var(--coral-dark)]">Mentorship</div>
-                  <p className="mt-2">Providing mentorship and guidance through seniors, alumni, professionals, and peer-learning programs.</p>
+                  <p className="mt-2 text-xs md:text-sm">Providing mentorship and guidance through seniors, alumni, professionals, and peer-learning programs.</p>
                 </div>
               </div>
             </FadeIn>
             <FadeIn delay={0.1} className="flex flex-col gap-6">
-              <div className="panel grain flex flex-col gap-6 border-2 border-[color:var(--purple)] bg-gradient-to-br from-[color:var(--purple)]/20 to-[color:var(--purple-dark)]/10 p-8 shadow-2xl">
-                <div className="eyebrow text-[color:var(--purple)] opacity-95">Community</div>
-                <div className="display text-3xl leading-snug text-[color:var(--purple)]">Peer Collaboration</div>
-                <p className="leading-relaxed text-[color:var(--text-primary)]">
+              <div className="panel grain flex flex-col gap-6 border-2 border-[color:var(--purple)] bg-gradient-to-br from-[color:var(--purple)]/20 to-[color:var(--purple-dark)]/10 p-6 md:p-8 shadow-2xl">
+                <div className="eyebrow text-[color:var(--purple)] opacity-95 text-xs md:text-sm">Community</div>
+                <div className="display text-2xl md:text-3xl leading-snug text-[color:var(--purple)]">Peer Collaboration</div>
+                <p className="leading-relaxed text-xs md:text-sm text-[color:var(--text-primary)]">
                   Enabling a supportive peer network that promotes collaboration, shared learning, and growth without comparison.
                 </p>
-                <div className="h-1 w-16 rounded-full bg-gradient-to-r from-[color:var(--gold)] to-[color:var(--gold)]/60 opacity-90"></div>
-                <div className="h-64 w-full rounded-lg overflow-hidden border-2 border-white/20 bg-[color:var(--surface)]">
-                  <Suspense fallback={<div className="w-full h-full bg-[color:var(--charcoal-light)]/50" />}>
-                    <MerryGoRoundScene />
-                  </Suspense>
+                <div className="h-1 w-12 md:w-16 rounded-full bg-gradient-to-r from-[color:var(--gold)] to-[color:var(--gold)]/60 opacity-90"></div>
+                <div className="h-48 md:h-64 w-full rounded-lg overflow-hidden border-2 border-white/20 bg-[color:var(--surface)]">
+                  <ErrorBoundary fallback={<div className="w-full h-full bg-[color:var(--charcoal-light)]/50" />}>
+                    <Suspense fallback={<div className="w-full h-full bg-[color:var(--charcoal-light)]/50" />}>
+                      <MerryGoRoundScene />
+                    </Suspense>
+                  </ErrorBoundary>
                 </div>
-              </div>
-              <div className="grid gap-4 sm:grid-cols-2">
-                {/* <div className="panel rounded-2xl border-2 border-[color:var(--teal)] bg-gradient-to-br from-[color:var(--teal)]/15 to-[color:var(--teal)]/5 p-5 text-center shadow-lg hover:shadow-xl transition-all">
-                  <div className="display mb-2 text-3xl font-bold text-[color:var(--teal)]">800+</div>
-                  <div className="text-sm font-medium text-[color:var(--text-primary)]">Active members</div>
-                </div>
-                <div className="panel rounded-2xl border-2 border-[color:var(--coral)] bg-gradient-to-br from-[color:var(--coral)]/15 to-[color:var(--coral)]/5 p-5 text-center shadow-lg hover:shadow-xl transition-all">
-                  <div className="display mb-2 text-3xl font-bold text-[color:var(--coral)]">5</div>
-                  <div className="text-sm font-medium text-[color:var(--text-primary)]">Events this year</div>
-                </div> */}
               </div>
             </FadeIn>
           </div>
         </section>
 
-        <section id="about" className="page-shell py-16">
-          <div className="grid gap-12 lg:grid-cols-2">
+        <section id="about" className="page-shell py-12 md:py-16">
+          <div className="grid gap-8 md:gap-12 lg:grid-cols-2 w-full">
             <FadeIn className="flex flex-col justify-center gap-6">
               <div className="eyebrow">About WiTS</div>
               <h2 className="display text-2xl sm:text-3xl md:text-4xl lg:text-5xl leading-tight">Grow Beyond Limits.</h2>
@@ -185,11 +174,9 @@ export default function Home() {
                   What began as a platform for learning and peer interaction has evolved into a structured community that supports technical development
                   alongside mentorship, leadership exposure, professional networking, and collaboration.
                 </p>
-                <p>Today, we continues to grow as a space that equips its members with the skills, guidance,
+                <p>Today, we continue to grow as a space that equips its members with the skills, guidance,
                   and connections needed to navigate and thrive in the rapidly evolving technology landscape.
                 </p>
-              </div>
-              <div className="flex justify-center">
               </div>
               <div className="flex justify-center">
                 <div className="flex items-center gap-4">
@@ -204,16 +191,10 @@ export default function Home() {
                       <div className="eyebrow text-[color:var(--sage)] opacity-95 text-center text-xl">Our Vision</div>
                       <div className="mt-1 mb-2 text-xs sm:text-sm text-[color:var(--white)] text-center italic opacity-80">"Empowering women to grow, connect, and lead in tech—together."</div>
                       <p className="text-xs sm:text-sm md:text-base leading-relaxed text-[color:var(--text-primary)]">
-                        <p>
-                          We envision a community that extends beyond academic learning and events, recognising the
-                          importance of peer connection, leadership development, and meaningful networking.
-                        </p>
+                        We envision a community that extends beyond academic learning and events, recognising the importance of peer connection, leadership development, and meaningful networking.
                         <br />
-                        <p>
-                           We aim to create an environment where women are encouraged to engage, collaborate, and build confidence
-                          through shared learning, mutual support, and sustained professional interaction, thus enabling
-                          holistic growth as both technologists and individuals.
-                        </p>
+                        <br />
+                        We aim to create an environment where women are encouraged to engage, collaborate, and build confidence through shared learning, mutual support, and sustained professional interaction, thus enabling holistic growth as both technologists and individuals.
                       </p>
                     </div>
                     <div className="h-1 w-16 rounded-full bg-gradient-to-r from-[color:var(--gold)] to-[color:var(--gold)]/60 opacity-90 mx-auto my-6"></div>
@@ -230,9 +211,9 @@ export default function Home() {
           </div>
         </section>
 
-        <section id="events" className="w-full max-w-[1400px] mx-auto px-6 py-16">
-          <div className="mb-10 flex flex-col items-center gap-4 text-center">
-            <FadeIn className="flex flex-col gap-3">
+        <section id="events" className="page-shell py-12 md:py-16">
+          <div className="mb-10 flex flex-col items-center gap-4 text-center w-full">
+            <FadeIn className="flex flex-col gap-3 items-center">
               <div className="eyebrow">Events</div>
               <h2 className="display text-2xl sm:text-3xl md:text-4xl lg:text-5xl leading-tight">Upcoming and past events</h2>
               <p className="max-w-2xl text-lg text-[color:var(--text-secondary)]">
@@ -260,33 +241,31 @@ export default function Home() {
             </div>
           </div>
           {eventTab === "past" ? (
-            <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3">
+            <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3 w-full place-items-center">
               {pastEvents.map((event, idx) => (
-                <div key={event.title}>
-                  <EventCard3D
-                    title={event.title}
-                    date={event.date}
-                    summary={event.summary}
-                    cta={event.cta}
-                    index={idx}
-                  />
-                </div>
+                <EventCard3D
+                  key={event.title}
+                  title={event.title}
+                  date={event.date}
+                  summary={event.summary}
+                  cta={event.cta}
+                  index={idx}
+                />
               ))}
             </div>
           ) : (
             upcomingEvents.length > 0 ? (
-              <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3">
+              <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3 w-full place-items-center">
                 {upcomingEvents.map((event, idx) => (
-                  <div key={event.title}>
-                    <EventCard3D
-                      title={event.title}
-                      date={event.date}
-                      summary={event.summary}
-                      cta={event.cta}
-                      link={event.link}
-                      index={idx}
-                    />
-                  </div>
+                  <EventCard3D
+                    key={event.title}
+                    title={event.title}
+                    date={event.date}
+                    summary={event.summary}
+                    cta={event.cta}
+                    link={event.link}
+                    index={idx}
+                  />
                 ))}
               </div>
             ) : (
@@ -301,8 +280,8 @@ export default function Home() {
 
         
 
-        <section id="team" className="page-shell py-16">
-          <div className="grid gap-12 lg:grid-cols-[1fr_0.9fr] lg:gap-16">
+        <section id="team" className="page-shell py-12 md:py-16">
+          <div className="grid gap-8 md:gap-12 lg:grid-cols-[1fr_0.9fr] lg:gap-16">
             <div>
               <FadeIn className="flex flex-col gap-2 max-w-2xl mb-6">
                 <div className="eyebrow">Executive Team</div>
@@ -383,15 +362,17 @@ export default function Home() {
               <div className="eyebrow">Learning & Growth</div>
               <h3 className="display text-xl sm:text-2xl text-[color:var(--text-primary)]">Progress through mentorship and learning</h3>
               <div className="h-96 rounded-3xl border-2 border-[color:var(--gold)]/30 bg-gradient-to-br from-[color:var(--gold)]/5 to-[color:var(--accent-coral)]/5 overflow-hidden shadow-lg">
-                <Suspense fallback={<div className="w-full h-full bg-[color:var(--surface)]/50" />}>
-                  <GrowthHelixScene />
-                </Suspense>
+                <ErrorBoundary fallback={<div className="w-full h-full bg-[color:var(--surface)]/50" />}>
+                  <Suspense fallback={<div className="w-full h-full bg-[color:var(--surface)]/50" />}>
+                    <GrowthHelixScene />
+                  </Suspense>
+                </ErrorBoundary>
               </div>
             </FadeIn>
           </div>
         </section>
 
-        <section id="join" className="page-shell py-16">
+        <section id="join" className="page-shell py-12 md:py-16">
           <div className="flex flex-col gap-6">
             <FadeIn className="flex flex-col gap-2 max-w-2xl">
               <ScrollReveal className="flex flex-col gap-2">
@@ -402,11 +383,11 @@ export default function Home() {
                 Whether you’re exploring the community or stepping into leadership, both journeys are grounded in respect, care, and belonging.
               </p>
             </FadeIn>
-            <div className="grid gap-4 md:grid-cols-3">
-              <FadeIn className="panel flex flex-col gap-4 p-6">
-              <div className="meta">Community membership</div>
-              <div className="display text-2xl leading-snug">Explore. Connect. Evolve.</div>
-              <p className="text-[color:var(--text-secondary)] leading-relaxed">
+            <div className="grid gap-6 md:grid-cols-3">
+              <FadeIn className="panel flex flex-col gap-4 p-6 h-full">
+              <div className="meta text-sm">Community membership</div>
+              <div className="display text-lg sm:text-xl leading-snug">Explore. Connect. Evolve.</div>
+              <p className="text-sm md:text-base text-[color:var(--text-secondary)] leading-relaxed flex-grow">
                 Take part in events, engage in mentor circles, and unlock shared resources.
                 No technical background required — just openness, curiosity, and kindness.
               </p>
@@ -423,14 +404,16 @@ export default function Home() {
               </div>
               </FadeIn>
               <FadeIn className="panel flex flex-col gap-4 items-center justify-center min-h-64 border border-[color:var(--gold)]">
-              <Suspense fallback={null}>
-                <ProgressParticlesScene />
-              </Suspense>
+              <ErrorBoundary fallback={<div className="text-center text-sm text-[color:var(--text-secondary)]">Loading...</div>}>
+                <Suspense fallback={null}>
+                  <ProgressParticlesScene />
+                </Suspense>
+              </ErrorBoundary>
               </FadeIn>
-              <FadeIn className="panel flex flex-col gap-4 p-6">
-              <div className="meta">Core Council 2025</div>
-              <div className="display text-2xl leading-snug">Be part of what we build.</div>
-              <p className="text-[color:var(--text-secondary)] leading-relaxed">
+              <FadeIn className="panel flex flex-col gap-4 p-6 h-full">
+              <div className="meta text-sm">Core Council 2025</div>
+              <div className="display text-lg sm:text-xl leading-snug">Be part of what we build.</div>
+              <p className="text-sm md:text-base text-[color:var(--text-secondary)] leading-relaxed flex-grow">
                 Play a role in shaping initiatives, guiding circles, and nurturing inclusive spaces.
                 You’ll receive structured training and ongoing mentorship along the way.
               </p>

@@ -11,7 +11,7 @@ function WaveTransformation() {
 
   // Create wave grid
   const geometry = useMemo(() => {
-    const geo = new THREE.PlaneGeometry(12, 8, 60, 40);
+    const geo = new THREE.PlaneGeometry(20, 12, 80, 50);
     return geo;
   }, []);
 
@@ -132,7 +132,7 @@ function FloatingParticles() {
 export function WaveTransformationScene() {
   return (
     <div className="fixed inset-0 -z-10" style={{ pointerEvents: "none" }}>
-      <Canvas camera={{ position: [0, 0, 8], fov: 60 }}>
+      <Canvas camera={{ position: [0, 0, 10], fov: 50 }}>
         <ambientLight intensity={0.4} />
         <pointLight position={[10, 10, 10]} intensity={0.6} color="#D4C8E8" />
         <pointLight position={[-10, -10, 5]} intensity={0.4} color="#B8E0E1" />

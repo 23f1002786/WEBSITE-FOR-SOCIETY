@@ -69,13 +69,6 @@ export function Splash({ onDone }: SplashProps) {
           onAnimationComplete={handleFinish}
         >
           <div className="absolute inset-0 grain" aria-hidden />
-          <button
-            aria-label="Skip intro"
-            onClick={handleFinish}
-            className="absolute left-6 top-6 rounded-full border border-[color:var(--border)] bg-[color:var(--surface)] px-4 py-2 text-sm font-semibold text-[color:var(--text-primary)] shadow-sm transition-colors hover:border-[color:var(--purple)]"
-          >
-            Skip
-          </button>
           <div className="relative flex h-[320px] w-full max-w-xl items-center justify-center">
             {wordMap.map((word, idx) => (
               <motion.span

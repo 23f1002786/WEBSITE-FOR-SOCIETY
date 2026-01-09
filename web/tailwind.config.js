@@ -7,8 +7,8 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        display: ["Cormorant Garamond", "Times New Roman", "serif"],
-        body: ["Source Serif 4", "Georgia", "serif"],
+        display: ["EB Garamond", "Times New Roman", "serif"],
+        body: ["EB Garamond", "Georgia", "serif"],
         meta: ["Source Sans 3", "sans-serif"],
       },
       colors: {

@@ -20,13 +20,13 @@ type Event = {
 };
 
 const upcomingEvents: Event[] = [
-  {
-    title: "CipherTrace",
-    date: "Margazhi'26",
-    summary: "CipherTrace is an immersive digital detective challenge where participants follow clues across websites and social media to crack codes, uncover hidden flags, and close a cyber‑mystery case.",
-    cta: "Register Now",
-    link: "https://iitmparadox.org/events/23",
-  },
+  // {
+  //   title: "CipherTrace",
+  //   date: "Margazhi'26",
+  //   summary: "CipherTrace is an immersive digital detective challenge where participants follow clues across websites and social media to crack codes, uncover hidden flags, and close a cyber‑mystery case.",
+  //   cta: "Register Now",
+  //   link: "https://iitmparadox.org/events/23",
+  // },
 ];
 
 const pastEvents: Event[] = [
@@ -49,6 +49,11 @@ const pastEvents: Event[] = [
     summary: "The event was designed to encourage participants to strengthen their problem-solving skills while applying logical thinking to real-world–style programming challenges.",
     cta: "Read notes",
   },
+  {
+    title: "CipherTrace",
+  date: "Margazhi'26",
+     summary: "CipherTrace is an immersive digital detective challenge where participants follow clues across websites and social media to crack codes, uncover hidden flags, and close a cyber‑mystery case.",
+  }
 ];
 
 const teams = [

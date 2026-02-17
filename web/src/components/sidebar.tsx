@@ -19,6 +19,7 @@ export function Sidebar() {
     { label: "Home", href: "/", id: "hero" },
     { label: "Events", href: "#events", id: "events" },
     { label: "Team", href: "#team", id: "team" },
+    { label: "Newsletter", href: "/newsletter", id: "newsletter" },
     { label: "Join", href: "#join", id: "join" },
   ];
 

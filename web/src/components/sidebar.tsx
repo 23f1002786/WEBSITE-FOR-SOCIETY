@@ -17,22 +17,26 @@ export function Sidebar() {
 
   const navLinks = [
     { label: "Home", href: "/", id: "hero" },
-    { label: "Events", href: "#events", id: "events" },
-    { label: "Team", href: "#team", id: "team" },
+    { label: "Events", href: "/#events", id: "events" },
+    { label: "Team", href: "/#team", id: "team" },
     { label: "Newsletter", href: "/newsletter", id: "newsletter" },
-    { label: "Join", href: "#join", id: "join" },
+    { label: "Join", href: "/#join", id: "join" },
   ];
 
-  const handleNavClick = (href: string) => {
+  const handleNavClick = (href: string, id: string) => {
     setIsOpen(false);
-    if (href.startsWith("/")) {
-      navigate(href);
+    if (href.includes("#")) {
+      // Navigate to home first if not already there
+      navigate("/");
+      // Use setTimeout to allow navigation to complete before scrolling
+      setTimeout(() => {
+        const element = document.getElementById(id);
+        if (element) {
+          element.scrollIntoView({ behavior: "smooth" });
+        }
+      }, 100);
     } else {
-      const targetId = href.replace("#", "");
-      const element = document.getElementById(targetId);
-      if (element) {
-        element.scrollIntoView({ behavior: "smooth" });
-      }
+      navigate(href);
     }
   };
 
@@ -46,7 +50,10 @@ export function Sidebar() {
             <a
               key={link.id}
               href={link.href}
-              onClick={() => handleNavClick(link.href)}
+              onClick={(e) => {
+                e.preventDefault();
+                handleNavClick(link.href, link.id);
+              }}
               className="relative rounded-lg px-3 py-1.5 text-xs font-medium text-[color:var(--text-primary)] transition-all overflow-hidden group"
               style={{
                 background: `linear-gradient(${45 + gradientOffset}deg,
@@ -91,7 +98,10 @@ export function Sidebar() {
             <a
               key={link.id}
               href={link.href}
-              onClick={() => handleNavClick(link.href)}
+              onClick={(e) => {
+                e.preventDefault();
+                handleNavClick(link.href, link.id);
+              }}
               className="rounded-lg px-4 py-2 text-sm font-medium text-[color:var(--text-primary)] transition-all hover:bg-[color:var(--bg)] hover:text-[color:var(--purple)]"
             >
               {link.label}

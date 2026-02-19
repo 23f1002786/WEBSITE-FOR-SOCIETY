@@ -162,9 +162,6 @@ export default function Newsletter() {
               <h3 className="display text-xl md:text-2xl mb-4">
                 More editions coming soon!
               </h3>
-              <p className="text-sm md:text-base text-[color:var(--text-secondary)] max-w-2xl mx-auto">
-                Join our community to stay updated on new editions. We are committed to bringing you fresh content and insights every term.
-              </p>
             </div>
           </FadeIn>
         </section>

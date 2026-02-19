@@ -163,7 +163,7 @@ export default function Newsletter() {
                 More editions coming soon!
               </h3>
               <p className="text-sm md:text-base text-[color:var(--text-secondary)] max-w-2xl mx-auto">
-                Subscribe to our mailing list to get notified when new editions are released. We're committed to bringing you fresh content and insights every month.
+                Join our community to stay updated on new editions. We are committed to bringing you fresh content and insights every term.
               </p>
             </div>
           </FadeIn>

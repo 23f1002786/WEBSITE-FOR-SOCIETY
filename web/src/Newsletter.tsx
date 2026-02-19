@@ -100,9 +100,7 @@ export default function Newsletter() {
           <FadeIn>
             <div className="mb-12 text-center">
               <div className="eyebrow mb-4 text-center">Our Editions</div>
-              <h2 className="display text-2xl sm:text-3xl md:text-4xl leading-tight">
-                Explore our Editions
-              </h2>
+              
             </div>
           </FadeIn>
 

@@ -23,7 +23,7 @@ export function EventCard3D({
 }: EventCard3DProps) {
   const [isFlipped, setIsFlipped] = useState(false);
   const prefersReducedMotion = useReducedMotion();
-  const enableFlip = cta === "Register Now";
+  const enableFlip = Boolean(link);
 
   return (
     <motion.div

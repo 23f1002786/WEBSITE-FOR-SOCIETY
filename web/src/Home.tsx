@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { useState, Suspense } from "react";
+import { useRef, useState, Suspense } from "react";
 import { FadeIn } from "@/components/fade-in";
 import { Splash } from "@/components/splash";
 import { ThemeToggle } from "@/components/theme-toggle";
@@ -19,42 +19,121 @@ type Event = {
   link?: string;
 };
 
-const upcomingEvents: Event[] = [
-  // {
-  //   title: "CipherTrace",
-  //   date: "Margazhi'26",
-  //   summary: "CipherTrace is an immersive digital detective challenge where participants follow clues across websites and social media to crack codes, uncover hidden flags, and close a cyber‑mystery case.",
-  //   cta: "Register Now",
-  //   link: "https://iitmparadox.org/events/23",
-  // },
-];
-
-const pastEvents: Event[] = [
+const events: Event[] = [
   {
-    title: "CIA - Classify, Infer, Automate",
-    date: "Saavan’25",
-    summary: "Organized in collaboration with the Tech Society, CIA was a three-round cyber intelligence competition that aimed to give participants a hands-on experience of real-world cyber operations.",
+    title: "Python Coding Challenge 5.0",
+    date: "Paradox 2026",
+    summary:
+      "Flagship event and the legacy WiTS programming challenge testing participants' Python coding skills across algorithmic and applied problems.",
+    cta: "Register",
+    link: "https://www.iitmparadox.org/events/technicals/62",
+  },
+  {
+    title: "Echo//Promtheus",
+    date: "Paradox 2026",
+    summary:
+      "Campus-wide cybersecurity and detective challenge organised by Women in Tech Society, Tech Society, and Sports Society to test investigation and problem-solving skills.",
+    cta: "Register",
+    link: "https://www.iitmparadox.org/events/technicals/60",
+  },
+  {
+    title: "Invisible Inequality: How Gender Bias Shapes Technology and AI Systems",
+    date: "May 2026",
+    summary:
+      "An open forum with Kalika Bali, Sr. Principal Researcher at Microsoft Research Labs India. The session explores how gender bias enters AI systems, and how technologists can build more responsible technology.",
+    cta: "Join session",
+  },
+  {
+    title: "The Industry Outlook: An Open Forum — Sudarshan Iyengar",
+    date: "April 2026",
+    summary:
+      "Open forum hosted by WiTS with Sudarshan Sir (IIT Ropar) discussing industry trends, hiring outlooks, and career advice for students.",
     cta: "Read notes",
   },
-    {
-    title: "SheCodes - Code4GovTech",
-    date: "September 2025",
-    summary: "A week-long open-source program by Code4GovTech with workshops and mentored project contributions.",
+  {
+    title: "Hands-on Cybersecurity with Python and Related Tools — Aryan Dubey",
+    date: "April 2026",
+    summary:
+      "Practical hands-on session by Kanha House with Aryan Dubey covering Python-based cybersecurity tools, workflows, and lab exercises.",
+    cta: "Workshop notes",
+  },
+  {
+    title: "Explaining AI: Making Data Science Transparent — Netali Agrawal",
+    date: "April 2026",
+    summary:
+      "Talk and discussion by Kanha House with Netali Agrawal on explainable AI, transparency in data science pipelines, and responsible model interpretation.",
+    cta: "Read recap",
+  },
+  {
+    title: "The Legacy of the First Programmer",
+    date: "March 8, 2026",
+    summary:
+      "Women's Day special organised by WiTS, Tech Society and Gir House, featuring a CTF event on the occassion of Women's Day to celebrate the contributions of women in technology.",
     cta: "View recap",
-  },
-
-  {
-    title: "Python Coding Challenge",
-    date: "Saavan’23",
-    summary: "The event was designed to encourage participants to strengthen their problem-solving skills while applying logical thinking to real-world–style programming challenges.",
-    cta: "Read notes",
   },
   {
     title: "CipherTrace",
-  date: "Margazhi'26",
-     summary: "CipherTrace is an immersive digital detective challenge where participants follow clues across websites and social media to crack codes, uncover hidden flags, and close a cyber‑mystery case.",
+    date: "Margazhi 2026",
+    summary: "CipherTrace is an immersive digital detective challenge where participants follow clues across websites and social media to crack codes, uncover hidden flags, and close a cyber-mystery case.",
+  },
+  {
+    title: "SheCodes - Code4GovTech",
+    date: "September 2025",
+    summary: "A week-long open-source program by Code4GovTech featuring workshops and mentored project contributions.",
+    cta: "View recap",
+  },
+  {
+    title: "CIA - Classify, Infer, Automate",
+    date: "Saavan 2025",
+    summary: "Organised in collaboration with the Tech Society, CIA was a three-round cyber intelligence competition that gave participants hands-on experience with real-world cyber operations.",
+    cta: "Read notes",
+  },
+  {
+    title: "Python Coding Challenge",
+    date: "Saavan 2023",
+    summary: "The event was designed to strengthen participants' problem-solving skills through real-world style programming challenges.",
+    cta: "Read notes",
   }
 ];
+
+const initiatives: Event[] = [
+  {
+    title: "Female Help Desk 2.0",
+    date: "Paradox 2026",
+    summary:
+      "Return of the Female Help Desk for Paradox 2026 with expanded coordination, volunteers, and resources to support female attendees throughout the fest lifecycle.",
+    cta: "Recap",
+  },
+  {
+    title: "Termly Newsletter",
+    date: "Termly",
+    summary:
+      "A term-wise newsletter delivering curated content on tech trends, opportunities, and community highlights to keep members informed and prepared.",
+    cta: "Read latest",
+  },
+  {
+    title: "Member-only LeetCode Community",
+    date: "Ongoing",
+    summary:
+      "A members-only peer group to practice problem solving and build consistent LeetCode habits together — focused on peer support rather than spoon-feeding.",
+    cta: "Join group",
+  },
+  {
+    title: "Member-only Periodic Sessions",
+    date: "Periodic",
+    summary:
+      "Regular member-only meetups for networking, mentorship drop-ins, and community problem-solving to strengthen connections and learning momentum.",
+    cta: "See schedule",
+  },
+  {
+    title: "Female Help Desk",
+    date: "Paradox 2025",
+    summary:
+      "A dedicated help desk for female students attending Paradox 2025 providing coordination and assistance throughout travel and the fest to ensure safe, smooth participation at every stage.",
+    cta: "Recap",
+  },
+];
+
 
 const teams = [
   {
@@ -69,11 +148,27 @@ const teams = [
 export default function Home() {
   const [showSplash, setShowSplash] = useState(true);
   const [contentReady, setContentReady] = useState(false);
-  const [eventTab, setEventTab] = useState<"upcoming" | "past">("past");
+  const eventsSliderRef = useRef<HTMLDivElement | null>(null);
+  const initiativesSliderRef = useRef<HTMLDivElement | null>(null);
+  const [activeTab, setActiveTab] = useState<"events" | "initiatives">("events");
 
   const handleSplashDone = () => {
     setShowSplash(false);
     setContentReady(true);
+  };
+
+  const scrollSlider = (direction: "left" | "right", ref?: React.RefObject<HTMLDivElement | null>) => {
+    const slider = ref?.current ?? eventsSliderRef.current;
+    if (!slider) return;
+
+    const card = slider.querySelector<HTMLElement>('[data-event-card="true"]');
+    const cardWidth = card?.offsetWidth ?? 320;
+    const gap = 32;
+
+    slider.scrollBy({
+      left: direction === "left" ? -(cardWidth + gap) : cardWidth + gap,
+      behavior: "smooth",
+    });
   };
 
   return (
@@ -220,67 +315,90 @@ export default function Home() {
           <div className="mb-10 flex flex-col items-center gap-4 text-center w-full">
             <FadeIn className="flex flex-col gap-3 items-center">
               <div className="eyebrow">Events</div>
-              <h2 className="display text-2xl sm:text-3xl md:text-4xl lg:text-5xl leading-tight">Upcoming and past events</h2>
+              <h2 className="display text-2xl sm:text-3xl md:text-4xl lg:text-5xl leading-tight">Events & Initiatives</h2>
               <p className="max-w-2xl text-lg text-[color:var(--text-secondary)]">
-                Clear separation, no overload. Attend at your pace.
+                A compact slider for event sessions and initiatives.
               </p>
+              <div className="mt-4 flex gap-3">
+                {[
+                  { key: "events" as const, label: "Events & Sessions" },
+                  { key: "initiatives" as const, label: "Initiatives" },
+                ].map((tab) => (
+                  <button
+                    key={tab.key}
+                    onClick={() => setActiveTab(tab.key)}
+                    className={`rounded-full border-2 px-4 py-2 text-sm font-semibold transition-all ${
+                      activeTab === tab.key
+                        ? "scale-105 border-[color:var(--purple)] bg-[color:var(--purple)] text-white shadow-lg"
+                        : "border-[color:var(--border)] text-[color:var(--text-primary)] hover:border-[color:var(--purple)] hover:shadow-md"
+                    }`}
+                    aria-pressed={activeTab === tab.key}
+                  >
+                    {tab.label}
+                  </button>
+                ))}
+              </div>
             </FadeIn>
-            <div className="mt-4 flex gap-3">
-              {[
-                { key: "past" as const, label: "Past" },
-                { key: "upcoming" as const, label: "Upcoming" },
-              ].map((tab) => (
-                <button
-                  key={tab.key}
-                  onClick={() => setEventTab(tab.key)}
-                  className={`rounded-full border-2 px-6 py-3 text-sm font-semibold transition-all ${
-                    eventTab === tab.key
-                      ? "scale-105 border-[color:var(--purple)] bg-[color:var(--purple)] text-white shadow-lg"
-                      : "border-[color:var(--border)] text-[color:var(--text-primary)] hover:border-[color:var(--purple)] hover:shadow-md"
-                  }`}
-                  aria-pressed={eventTab === tab.key}
-                >
-                  {tab.label}
-                </button>
-              ))}
-            </div>
           </div>
-          {eventTab === "past" ? (
-            <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3 w-full place-items-center">
-              {pastEvents.map((event, idx) => (
-                <EventCard3D
-                  key={event.title}
-                  title={event.title}
-                  date={event.date}
-                  summary={event.summary}
-                  cta={event.cta}
-                  index={idx}
-                />
-              ))}
-            </div>
-          ) : (
-            upcomingEvents.length > 0 ? (
-              <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3 w-full place-items-center">
-                {upcomingEvents.map((event, idx) => (
-                  <EventCard3D
-                    key={event.title}
-                    title={event.title}
-                    date={event.date}
-                    summary={event.summary}
-                    cta={event.cta}
-                    link={event.link}
-                    index={idx}
-                  />
+          <div className="relative w-full">
+            <button
+              type="button"
+              onClick={() => scrollSlider("left", activeTab === "events" ? eventsSliderRef : initiativesSliderRef)}
+              className="absolute left-0 top-1/2 z-10 -translate-y-1/2 rounded-full border border-[color:var(--border)] bg-[color:var(--surface)]/95 p-3 text-[color:var(--text-primary)] shadow-lg transition-all hover:border-[color:var(--purple)] hover:bg-[color:var(--purple)] hover:text-white"
+              aria-label="Scroll events left"
+            >
+              <svg className="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+              </svg>
+            </button>
+            <button
+              type="button"
+              onClick={() => scrollSlider("right", activeTab === "events" ? eventsSliderRef : initiativesSliderRef)}
+              className="absolute right-0 top-1/2 z-10 -translate-y-1/2 rounded-full border border-[color:var(--border)] bg-[color:var(--surface)]/95 p-3 text-[color:var(--text-primary)] shadow-lg transition-all hover:border-[color:var(--purple)] hover:bg-[color:var(--purple)] hover:text-white"
+              aria-label="Scroll events right"
+            >
+              <svg className="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+              </svg>
+            </button>
+            {activeTab === "events" ? (
+              <div
+                ref={eventsSliderRef}
+                className="flex gap-8 overflow-x-auto scroll-smooth px-10 pb-4 snap-x snap-mandatory [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+              >
+                {events.map((event, idx) => (
+                  <div key={event.title} data-event-card="true" className="min-w-[280px] sm:min-w-[320px] md:min-w-[360px] snap-start">
+                    <EventCard3D
+                      title={event.title}
+                      date={event.date}
+                      summary={event.summary}
+                      cta={event.cta}
+                      link={event.link}
+                      index={idx}
+                    />
+                  </div>
                 ))}
               </div>
             ) : (
-              <div className="text-center py-8">
-                <FadeIn>
-                  <p className="text-xl text-[color:var(--text-secondary)]">Stay tuned for upcoming events!</p>
-                </FadeIn>
+              <div
+                ref={initiativesSliderRef}
+                className="flex gap-8 overflow-x-auto scroll-smooth px-10 pb-4 snap-x snap-mandatory [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+              >
+                {initiatives.map((it, idx) => (
+                  <div key={it.title} data-event-card="true" className="min-w-[280px] sm:min-w-[320px] md:min-w-[360px] snap-start">
+                    <EventCard3D
+                      title={it.title}
+                      date={it.date}
+                      summary={it.summary}
+                      cta={it.cta}
+                      link={it.link}
+                      index={idx}
+                    />
+                  </div>
+                ))}
               </div>
-            )
-          )}
+            )}
+          </div>
         </section>
 
         

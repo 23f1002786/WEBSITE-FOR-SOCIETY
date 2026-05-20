@@ -316,9 +316,6 @@ export default function Home() {
             <FadeIn className="flex flex-col gap-3 items-center">
               <div className="eyebrow">Events</div>
               <h2 className="display text-2xl sm:text-3xl md:text-4xl lg:text-5xl leading-tight">Events & Initiatives</h2>
-              <p className="max-w-2xl text-lg text-[color:var(--text-secondary)]">
-                A compact slider for event sessions and initiatives.
-              </p>
               <div className="mt-4 flex gap-3">
                 {[
                   { key: "events" as const, label: "Events & Sessions" },

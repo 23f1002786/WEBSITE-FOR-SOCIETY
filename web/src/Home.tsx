@@ -29,7 +29,7 @@ const events: Event[] = [
     link: "https://www.iitmparadox.org/events/technicals/62",
   },
   {
-    title: "Echo//Promtheus",
+    title: "Echo//Prometheus",
     date: "Paradox 2026",
     summary:
       "Campus-wide cybersecurity and detective challenge organised by Women in Tech Society, Tech Society, and Sports Society to test investigation and problem-solving skills.",

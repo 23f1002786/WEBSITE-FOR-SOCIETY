@@ -26,6 +26,16 @@ const newsletters: Newsletter[] = [
     downloadLink: "/newsletter-vol-1.pdf",
     color: "purple",
   },
+  {
+    id: 2,
+    title: "Women in Tech - Vol. 2",
+    edition: "Edition 2",
+    date: "May 2026",
+    description: "The second edition with community updates, event recaps, and upcoming opportunities.",
+    readOnlineLink: "/newsletter-vol-2.pdf",
+    downloadLink: "/newsletter-vol-2.pdf",
+    color: "teal",
+  },
 ];
 
 const colorClasses = {
